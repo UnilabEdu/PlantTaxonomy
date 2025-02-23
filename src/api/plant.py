@@ -39,3 +39,14 @@ class PlantAPI(Resource):
                         "image": plant.image} for plant in plants]
 
         return plants_json, 200
+
+@api.route("/plant/<int:id>")  # Route for a specific plant
+class PlantAPI(Resource):
+    def get(self, id):
+        plant = Plant.query.get_or_404(id)
+        plants_json = [{"id": plant.id,
+                        "name": plant.name,
+                        "eng_name": plant.eng_name,
+                        "lat_name": plant.lat_name,
+                        "image": plant.image}]
+        return plants_json, 200

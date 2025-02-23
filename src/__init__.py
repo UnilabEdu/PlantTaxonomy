@@ -1,10 +1,10 @@
 from flask import Flask
 
-from src.api import plant
+from src.api import plant, question
 from src.config import Config
 from src.ext import db, migrate, api
 from src.commands import init_db, populate_db
-from src.models import Plant
+from src.models import Plant, Question
 
 COMMANDS = [init_db, populate_db]
 

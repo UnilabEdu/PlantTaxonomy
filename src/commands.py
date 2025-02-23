@@ -2,7 +2,7 @@ from flask.cli import with_appcontext
 import click
 
 from src.ext import db
-from src.models.plant import Plant
+from src.models import Plant, Question
 import random
 
 @click.command("init_db")
