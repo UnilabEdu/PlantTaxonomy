@@ -11,3 +11,8 @@ class Question(BaseModel, db.Model):
     image = db.Column(db.String(255), unique=True, nullable=True)
 
     plant_id = db.Column(db.Integer, db.ForeignKey('plant.id'), nullable=True)
+
+    plant = db.relationship(
+        'Plant',
+        backref=db.backref('questions', lazy='dynamic')
+    )

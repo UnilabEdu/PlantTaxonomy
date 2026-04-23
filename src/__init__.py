@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_admin.menu import MenuLink
 
 from src.admin import register_admin_views, MyAdminIndexView
 from src.api import plant, question
@@ -31,6 +32,8 @@ def register_extensions(app):
     def load_user(user_id):
         return db.session.get(User, int(user_id))
     register_admin_views()
+
+    admin.add_link(MenuLink(name='Logout', category='', url="/admin/logout"))
 
 def register_commands(app):
     for cmd in COMMANDS:

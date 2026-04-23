@@ -11,3 +11,6 @@ class Plant(BaseModel, db.Model):
     family_name_geo = db.Column(db.String(255), unique=True, nullable=True)
     description = db.Column(db.Text(), nullable=True)
     image = db.Column(db.String(255), unique=True, nullable=True)
+
+    def __str__(self):
+        return self.family_name or f'Plant {self.id}'
